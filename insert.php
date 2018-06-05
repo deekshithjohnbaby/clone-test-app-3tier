@@ -12,15 +12,15 @@ VALUES ('".$fname."', '".$sname."', '".$email."','".$mob."')";
 
 
 if ($conn->query($sql)) {
-    header('Location:'.$home_url.'?msg=as1d');
+    echo "1";
 } else {
-    header('Location:'.$home_url.'?msg=af0d');
+    echo "0"; 
 }
 	  
 }
 else
 {
-	 header('Location:'.$home_url.'?msg=af3d');
+	 echo "3"; 
 }
 
 
