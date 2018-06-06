@@ -6,21 +6,25 @@ if(isset($_POST['fname']) && isset($_POST['sname']) && isset($_POST['email']) &&
 	  $sname= $_POST['sname'];
 	  $email= $_POST['email'];
 	  $mob= $_POST['mobile'];
+	 
 	  
 	  $sql = "INSERT INTO tbl_registration (first_name, last_name, email_id,phone)
 VALUES ('".$fname."', '".$sname."', '".$email."','".$mob."')";
 
 
 if ($conn->query($sql)) {
-    echo "1";
+	$a['value'] = 1;
+    echo json_encode($a);
 } else {
-    echo "0"; 
+	$a['value'] = 0;
+   echo json_encode($a);
 }
 	  
 }
 else
 {
-	 echo "3"; 
+	 $a['value'] = 3;
+	 echo json_encode($a);
 }
 
 
