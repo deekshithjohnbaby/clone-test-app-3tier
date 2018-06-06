@@ -72,21 +72,27 @@
 			$.ajax({
 						context:this,
 						type: "POST",
-						url: 'insert.php',
+						url: 'http://app-3tier-test-app-test-app-dk.pilot.honeyshift.com/insert.php',
 						data: form_data,
 						success: function (msg) {
-						 debugger;
-						if(msg.trim() == "1")
+						 
+						 
+						 var obj = jQuery.parseJSON(msg);
+						 
+						 
+						if(obj.value == "1")
 						{
 							$('#succ_rec').text('');
 							$('#err_rec').text('');
 							$('#succ_rec').text('Successfully added your data');
+							window.setTimeout(function(){location.reload()},3000);
 						}
-						else if(msg.trim() == "0")
+						else if(obj.value == "0")
 						{
 							$('#succ_rec').text('');
 							$('#err_rec').text('');
 							$('#err_rec').text('An unexpected error occurred');
+							window.setTimeout(function(){location.reload()},3000);
 						}
 						else{
 							$('#succ_rec').text('');
@@ -101,6 +107,8 @@
 	 
 	 });
     })(jQuery);
+	
+	
 </script>
 		
     </body>
